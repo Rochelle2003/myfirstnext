@@ -8,7 +8,7 @@ export default function Showcase() {
 
   // Haal de data op met fetch
   useEffect(() => {
-    fetch('/cardData.json')  // Haal de data op uit een JSON-bestand
+    fetch('https://jsonplaceholder.typicode.com/users')  // Haal de data op uit een JSON-bestand
       .then(response => response.json())
       .then(data => {
         setPosts(data);
@@ -36,10 +36,10 @@ export default function Showcase() {
             {posts.map(post => (  // Gebruik de aangepaste cardData
               <div key={post.id} className="card">
                 <h3 className="card-title">
-                  {post.title} {/* Gebruiken de aangepaste titels */}
+                  {post.name} {/* Gebruiken de aangepaste titels */}
                 </h3>
                 <p className="card-body">
-                  {post.body} {/* Gebruiken de aangepaste teksten */}
+                  {post.company.name} {/* Gebruiken de aangepaste teksten */}
                 </p>
                 <a href="#" className="card-link">Lees verder</a>
               </div>
